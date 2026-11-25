@@ -40,7 +40,7 @@ python3 -m http.server 8000
 Luego abrir http://localhost:8000
 
 ## Fotos de los pasos (Pexels, licencia libre para uso comercial)
-- Paso 1: docente con celular, foto de Tima Miroshnichenko (pexels.com/photo/5427999)
+- Paso 1: mujer sonriendo con su celular, foto de Gilmer Diaz Estela (pexels.com/photo/4747813)
 - Paso 2: profesional de salud con celular, foto de Tessy Agbonome (pexels.com/photo/19963176)
 - Paso 3: funcionario con gafete, foto de Mizuno K (pexels.com/photo/12898967)
 
