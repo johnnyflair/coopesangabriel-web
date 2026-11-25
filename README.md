@@ -39,10 +39,5 @@ python3 -m http.server 8000
 ```
 Luego abrir http://localhost:8000
 
-## Fotos de los pasos (Pexels, licencia libre para uso comercial)
-Las tres son de la misma sesión y la misma persona, de Keira Burton:
-- Paso 1: pexels.com/photo/6146956
-- Paso 2: pexels.com/photo/6146966
-- Paso 3: pexels.com/photo/6146950
-
-Se cargan desde el CDN de Pexels. El encuadre de cada rostro se ajusta con `data-focus` (x y) y `data-zoom` en `index.html`. Lo ideal es reemplazarlas por fotos reales de asociados, con su permiso.
+## Pasos de CrédiCash
+Se muestran como tres pantallas de celular dibujadas con HTML y CSS: el chat de WhatsApp, la firma digital y la notificación del depósito. El monto de las pantallas se actualiza con lo que la persona elige en la calculadora. Si la cooperativa usa otro proceso de firma, hay que ajustar la segunda pantalla en `index.html`.

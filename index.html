@@ -15,7 +15,7 @@
 <meta property="og:image" content="https://coopesangabriel.com/assets/og.jpg">
 <meta name="theme-color" content="#009245">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FinancialService","name":"Coope San Gabriel R.L.","url":"https://coopesangabriel.com/","foundingDate":"1997","areaServed":"CR","description":"Cooperativa de servicios múltiples: crédito por rebajo de planilla para funcionarios públicos, planes de protección y Tiendita CSG."}
@@ -104,18 +104,41 @@
         <div class="stat"><strong data-tasa-text></strong><span>tasa anual</span></div>
         <div class="stat"><strong>Menos de 48 h</strong><span>desembolso</span></div>
       </div>
-      <ol class="step-cards">
-        <li class="step-card step-card--green">
-          <div class="step-card__photo" data-photo="https://images.pexels.com/photos/6146956/pexels-photo-6146956.jpeg?auto=compress&cs=tinysrgb&w=1200" data-focus="0.66 0.38" data-zoom="1.6" data-alt="Mujer escribiendo en su celular">Foto paso 1</div>
-          <div class="step-card__body"><span class="step-card__n">1</span><div><strong>Escribinos</strong><span>Por WhatsApp, con tu cédula y orden patronal.</span></div></div>
+      <ol class="phone-steps">
+        <li class="phone-step">
+          <div class="phone" aria-hidden="true">
+            <div class="phone__bar phone__bar--wa"><span data-icon="wa" data-icon-class="icon--sm"></span> Coope San Gabriel</div>
+            <div class="phone__body phone__body--wa">
+              <span class="bubble bubble--me">Hola, quiero CrédiCash por <b data-sync-monto>₡400 000</b></span>
+              <span class="bubble">¡Con gusto! Enviame tu cédula y tu orden patronal.</span>
+              <span class="bubble bubble--me"><span data-icon="file" data-icon-class="icon--sm"></span> cedula.jpg</span>
+            </div>
+          </div>
+          <h3><span class="phone-step__n">1</span> Escribinos</h3>
+          <p>Por WhatsApp, con tu cédula y orden patronal.</p>
         </li>
-        <li class="step-card step-card--orange">
-          <div class="step-card__photo" data-photo="https://images.pexels.com/photos/6146966/pexels-photo-6146966.jpeg?auto=compress&cs=tinysrgb&w=1200" data-focus="0.58 0.5" data-zoom="1.1" data-alt="La misma mujer sonriendo mientras firma en su celular">Foto paso 2</div>
-          <div class="step-card__body"><span class="step-card__n">2</span><div><strong>Firmá digital</strong><span>Sin ir a ninguna oficina.</span></div></div>
+        <li class="phone-step">
+          <div class="phone" aria-hidden="true">
+            <div class="phone__bar phone__bar--sign">Firma digital</div>
+            <div class="phone__body">
+              <span class="phone__label">Contrato CrédiCash · <b data-sync-monto>₡400 000</b></span>
+              <span class="phone__doc"><i></i><i></i><i></i><i></i></span>
+              <span class="phone__sign">Ana R.</span>
+              <span class="phone__btn">Firmar</span>
+            </div>
+          </div>
+          <h3><span class="phone-step__n">2</span> Firmá digital</h3>
+          <p>Desde tu celular, sin ir a ninguna oficina.</p>
         </li>
-        <li class="step-card step-card--yellow">
-          <div class="step-card__photo" data-photo="https://images.pexels.com/photos/6146950/pexels-photo-6146950.jpeg?auto=compress&cs=tinysrgb&w=1200" data-focus="0.46 0.4" data-zoom="1.15" data-alt="La misma mujer feliz">Foto paso 3</div>
-          <div class="step-card__body"><span class="step-card__n">3</span><div><strong>Recibí el dinero</strong><span>En tu cuenta en menos de 48 horas.</span></div></div>
+        <li class="phone-step">
+          <div class="phone phone--dark" aria-hidden="true">
+            <div class="phone__bar phone__bar--dark">9:41</div>
+            <div class="phone__body phone__body--notif">
+              <span class="notif"><small>Depósito recibido</small><strong>+ <span data-sync-monto>₡400 000</span></strong><em>CrédiCash · Coope San Gabriel</em></span>
+            </div>
+          </div>
+          <h3><span class="phone-step__n">3</span> Recibí el dinero</h3>
+          <p>En tu cuenta en menos de 48 horas.</p>
         </li>
       </ol>
     </div>

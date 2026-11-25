@@ -134,6 +134,7 @@
       fill(m); fill(p);
       const msg = `Hola, quiero solicitar CrédiCash por ${colones(monto)} a ${meses} meses.`;
       btn.href = waLink(msg);
+      $$("[data-sync-monto]").forEach(e => e.textContent = colones(monto));
       $$("[data-mobile-cta]").forEach(a => { a.href = waLink(msg); const s = $("[data-mobile-monto]", a); if (s) s.textContent = colones(monto); });
     }
     m.addEventListener("input", update); p.addEventListener("input", update);
