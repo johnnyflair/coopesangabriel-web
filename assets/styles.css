@@ -295,3 +295,7 @@ input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 4px rgba(
 .step-card--orange .step-card__photo{border-bottom-color:var(--csg-orange)}.step-card--orange .step-card__n{background:var(--csg-orange)}
 .step-card--yellow .step-card__photo{border-bottom-color:var(--csg-yellow)}.step-card--yellow .step-card__n{background:var(--csg-yellow);color:#3a2700}
 @media(max-width:700px){.step-cards{grid-template-columns:1fr}}
+
+.step-card__photo{position:relative;overflow:hidden}
+.step-card__photo.has-img img{position:absolute;max-width:none;object-fit:fill}
+.step-card__photo img.is-bright{filter:brightness(1.22) saturate(1.05)}

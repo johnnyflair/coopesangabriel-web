@@ -201,7 +201,22 @@
   /* Fotos de los pasos: se muestran solo si el archivo existe */
   $$("[data-photo]").forEach(box => {
     const img = new Image();
-    img.onload = () => { img.alt = box.dataset.alt || ""; img.loading = "lazy"; box.textContent = ""; box.appendChild(img); box.classList.add("has-img"); };
+    img.onload = () => {
+      img.alt = box.dataset.alt || "";
+      box.textContent = ""; box.appendChild(img); box.classList.add("has-img");
+      if (box.dataset.bright) img.classList.add("is-bright");
+      const [fx, fy] = (box.dataset.focus || "0.5 0.5").split(" ").map(Number);
+      const z = Number(box.dataset.zoom || 1);
+      /* Centra el rostro (fx, fy) dentro del recuadro, sin dejar bordes vacíos */
+      const place = () => {
+        const W = box.clientWidth, H = box.clientHeight, iw = img.naturalWidth, ih = img.naturalHeight;
+        const s = Math.max(W / iw, H / ih) * z, w = iw * s, hh = ih * s;
+        const left = Math.min(0, Math.max(W - w, W / 2 - fx * w));
+        const top = Math.min(0, Math.max(H - hh, H / 2 - fy * hh));
+        Object.assign(img.style, { width: w + "px", height: hh + "px", left: left + "px", top: top + "px" });
+      };
+      place(); window.addEventListener("resize", place);
+    };
     img.src = box.dataset.photo;
   });
 
