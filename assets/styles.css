@@ -239,3 +239,18 @@ input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 4px rgba(
 .ticker__item{display:inline-flex;align-items:center;padding:0 28px}
 .ticker__item strong{font-weight:700;margin:0 .25em}
 .ticker__item::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--brand);margin-left:56px;margin-right:-28px}
+
+/* Beneficios en un renglón y productos con encabezado */
+@media(min-width:901px){.checks--hero{flex-wrap:nowrap;font-size:.95rem;gap:20px;white-space:nowrap}}
+.hero-services__title{margin:28px 0 10px;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#FFE08A}
+.hero-services{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:0;max-width:600px;gap:10px}
+.hero-service{padding:12px}
+.hero-service strong{font-size:.95rem}
+.hero-service--main{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.55)}
+.ic-green-light{background:#fff;color:var(--brand-dark)}
+@media(max-width:560px){
+  .hero-services__title{margin-top:20px}
+  .hero-services{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-service{flex-direction:row;text-align:left;gap:10px;align-items:center}
+  .hero-service strong{margin-top:0}
+}
