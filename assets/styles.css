@@ -281,3 +281,17 @@ input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 4px rgba(
 }
 .footer__bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .footer__bottom a{font-weight:600}
+
+/* Pasos con foto */
+.step-cards{list-style:none;padding:0;margin:24px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step-card{border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;background:#fff}
+.step-card__photo{aspect-ratio:3/2;background:var(--bg-2);display:grid;place-items:center;text-align:center;color:var(--ink-3);font-size:.85rem;padding:12px;border-bottom:5px solid var(--brand)}
+.step-card__photo img{width:100%;height:100%;object-fit:cover;display:block}
+.step-card__photo.has-img{padding:0}
+.step-card__body{display:flex;gap:12px;align-items:flex-start;padding:16px}
+.step-card__body strong{display:block}
+.step-card__body span:not(.step-card__n){color:var(--ink-2);font-size:.9rem}
+.step-card__n{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;background:var(--brand)}
+.step-card--orange .step-card__photo{border-bottom-color:var(--csg-orange)}.step-card--orange .step-card__n{background:var(--csg-orange)}
+.step-card--yellow .step-card__photo{border-bottom-color:var(--csg-yellow)}.step-card--yellow .step-card__n{background:var(--csg-yellow);color:#3a2700}
+@media(max-width:700px){.step-cards{grid-template-columns:1fr}}

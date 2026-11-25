@@ -198,5 +198,12 @@
     ].join("");
   });
 
+  /* Fotos de los pasos: se muestran solo si el archivo existe */
+  $$("[data-photo]").forEach(box => {
+    const img = new Image();
+    img.onload = () => { img.alt = box.dataset.alt || ""; img.loading = "lazy"; box.textContent = ""; box.appendChild(img); box.classList.add("has-img"); };
+    img.src = box.dataset.photo;
+  });
+
   if ($("[data-mobile-cta]")) document.body.classList.add("has-mobile-cta");
 })();
