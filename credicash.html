@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es-CR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CrédiCash | Crédito hasta ₡690.000 para funcionarios públicos | Coope San Gabriel</title>
+<meta name="description" content="CrédiCash: hasta ₡690.000 en menos de 48 horas, sin fiador, sin prima y sin afiliación. Pago por rebajo de planilla. Requisitos y preguntas frecuentes.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://coopesangabriel.com/credicash.html">
+<meta property="og:locale" content="es_CR">
+<meta property="og:title" content="CrédiCash | Crédito hasta ₡690.000 para funcionarios públicos | Coope San Gabriel">
+<meta property="og:description" content="CrédiCash: hasta ₡690.000 en menos de 48 horas, sin fiador, sin prima y sin afiliación. Pago por rebajo de planilla. Requisitos y preguntas frecuentes.">
+<meta name="theme-color" content="#009245">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<header id="site-header"></header>
+<main>
+
+<section class="hero">
+  <div class="container hero__grid">
+    <div>
+      <span class="eyebrow">CrédiCash</span>
+      <h1>Efectivo hasta <span class="hl" data-max-text></span>, sin fiador y sin prima</h1>
+      <p class="hero__lead">Para funcionarios públicos. Desembolso en menos de 48 horas, trámite 100% digital y pago por rebajo de planilla.</p>
+      <ul class="checks">
+        <li><span data-icon="check" data-icon-class="icon--sm"></span> Sin afiliación</li>
+        <li><span data-icon="check" data-icon-class="icon--sm"></span> Sin penalización por pago anticipado</li>
+      </ul>
+    </div>
+    <div class="calc" data-calc>
+      <h2>Calculá tu cuota</h2>
+      <div class="calc__row">
+        <label class="calc__label" for="monto"><span>¿Cuánto necesitás?</span><output data-out-monto for="monto"></output></label>
+        <input type="range" id="monto" data-monto>
+        <div class="calc__range-hint"><span data-min></span><span data-max></span></div>
+      </div>
+      <div class="calc__row">
+        <label class="calc__label" for="plazo"><span>¿En cuánto tiempo?</span><output data-out-plazo for="plazo"></output></label>
+        <input type="range" id="plazo" data-plazo>
+        <div class="calc__range-hint"><span data-pmin></span><span data-pmax></span></div>
+      </div>
+      <div class="calc__result" aria-live="polite"><span class="muted small">Cuota mensual estimada</span><strong data-out-cuota></strong></div>
+      <a class="btn btn--primary btn--block" data-solicitar target="_blank" rel="noopener"><span data-icon="wa"></span> Solicitar este monto</a>
+      <p class="calc__note">Cálculo de referencia. La cuota final depende del análisis y de tu capacidad de pago.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container">
+    <div class="stats">
+      <div class="stat"><strong data-max-text></strong><span>monto máximo</span></div>
+      <div class="stat"><strong data-plazo-max-text></strong><span>plazo máximo</span></div>
+      <div class="stat"><strong data-tasa-text></strong><span>tasa anual</span></div>
+      <div class="stat"><strong>Menos de 48 h</strong><span>desembolso</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid grid--2" style="gap:40px;align-items:start">
+    <div>
+      <h2>Cómo solicitarlo</h2>
+      <ol class="steps" style="grid-template-columns:1fr">
+        <li><strong>Escribinos por WhatsApp</strong><span class="muted small">Indicá el monto y el plazo que necesitás.</span></li>
+        <li><strong>Enviá tus documentos</strong><span class="muted small">Cédula y orden patronal o colilla de pago.</span></li>
+        <li><strong>Firmá digital</strong><span class="muted small">Sin ir a ninguna oficina.</span></li>
+        <li><strong>Recibí el dinero</strong><span class="muted small">En tu cuenta en menos de 48 horas.</span></li>
+      </ol>
+    </div>
+    <div>
+      <h2>Requisitos</h2>
+      <ul class="req" data-requisitos></ul>
+      <div class="legal" style="margin-top:20px">Coope San Gabriel R.L. está supervisada solamente en materia de prevención de legitimación de capitales y financiamiento al terrorismo. La SUGEF no la supervisa en materia financiera.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="preguntas">
+  <div class="container" style="max-width:780px">
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq" data-faq style="margin-top:16px"></div>
+  </div>
+</section>
+</main>
+<footer id="site-footer"></footer>
+<div class="mobile-cta"><a class="btn btn--primary btn--block" data-mobile-cta target="_blank" rel="noopener"><span data-icon="wa"></span> Solicitar <span data-mobile-monto></span></a></div>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>
