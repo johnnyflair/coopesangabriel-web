@@ -216,3 +216,19 @@ input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 4px rgba(
 
 .checks--hero{font-size:1.05rem;gap:10px 22px;margin-top:6px}
 .checks--hero .icon{color:#FFE08A;stroke-width:2.6}
+
+/* Servicios dentro del hero */
+.hero-services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:26px;max-width:560px}
+.hero-service{display:flex;flex-direction:column;gap:2px;padding:14px;border-radius:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#fff;backdrop-filter:blur(4px);transition:background .15s,transform .15s}
+.hero-service:hover{background:rgba(255,255,255,.2);transform:translateY(-2px);text-decoration:none}
+.hero-service strong{font-weight:600;margin-top:8px}
+.hero-service span:last-child{font-size:.85rem;color:#d7f2df}
+.hero-service__ic{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;color:#fff}
+.hero-service__ic .icon{width:20px;height:20px}
+@media(max-width:560px){
+  .hero-services{gap:8px;margin-top:18px}
+  .hero-service{padding:10px;align-items:center;text-align:center}
+  .hero-service strong{font-size:.82rem;margin-top:6px;line-height:1.2}
+  .hero-service span:last-child{display:none}
+  .hero-service__ic{width:30px;height:30px}
+}
