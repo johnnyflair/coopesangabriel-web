@@ -40,8 +40,9 @@ python3 -m http.server 8000
 Luego abrir http://localhost:8000
 
 ## Fotos de los pasos (Pexels, licencia libre para uso comercial)
-- Paso 1: mujer sonriendo con su celular, foto de Gilmer Diaz Estela (pexels.com/photo/4747813)
-- Paso 2: profesional de salud con celular, foto de Tessy Agbonome (pexels.com/photo/19963176)
-- Paso 3: funcionario con gafete, foto de Mizuno K (pexels.com/photo/12898967)
+Las tres son de la misma sesión y la misma persona, de Keira Burton:
+- Paso 1: pexels.com/photo/6146956
+- Paso 2: pexels.com/photo/6146966
+- Paso 3: pexels.com/photo/6146950
 
-Se cargan desde el CDN de Pexels. Para no depender de Pexels, descargarlas y guardarlas como `assets/paso-1.jpg`, `assets/paso-2.jpg` y `assets/paso-3.jpg`, y cambiar `data-photo` en `index.html`. Lo ideal es reemplazarlas por fotos reales de asociados, con su permiso.
+Se cargan desde el CDN de Pexels. El encuadre de cada rostro se ajusta con `data-focus` (x y) y `data-zoom` en `index.html`. Lo ideal es reemplazarlas por fotos reales de asociados, con su permiso.
