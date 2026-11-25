@@ -38,3 +38,10 @@ Los colores están en las variables al inicio de `assets/styles.css`.
 python3 -m http.server 8000
 ```
 Luego abrir http://localhost:8000
+
+## Fotos de los pasos (Pexels, licencia libre para uso comercial)
+- Paso 1: docente con celular, foto de Tima Miroshnichenko (pexels.com/photo/5427999)
+- Paso 2: profesional de salud con celular, foto de Tessy Agbonome (pexels.com/photo/19963176)
+- Paso 3: funcionario con gafete, foto de Mizuno K (pexels.com/photo/12898967)
+
+Se cargan desde el CDN de Pexels. Para no depender de Pexels, descargarlas y guardarlas como `assets/paso-1.jpg`, `assets/paso-2.jpg` y `assets/paso-3.jpg`, y cambiar `data-photo` en `index.html`. Lo ideal es reemplazarlas por fotos reales de asociados, con su permiso.
