@@ -254,3 +254,5 @@ input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 4px rgba(
   .hero-service{flex-direction:row;text-align:left;gap:10px;align-items:center}
   .hero-service strong{margin-top:0}
 }
+
+.photo{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius-lg);display:block}
