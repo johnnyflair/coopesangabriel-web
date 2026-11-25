@@ -31,20 +31,20 @@
   window.CSGwa = waLink;
 
   /* ---------- Header ---------- */
-  const here = location.pathname.split("/").pop() || "index.html";
+  const here = "";
   const links = [
-    ["credicash.html", "CrédiCash"],
-    ["proteccion.html", "Protección"],
-    [C.enlaces.tiendita, "Tiendita", true],
-    ["nosotros.html", "Nosotros"],
-    ["contacto.html", "Contacto"]
+    ["#credicash", "CrédiCash"],
+    ["#proteccion", "Protección"],
+    ["#tiendita", "Tiendita"],
+    ["#nosotros", "Nosotros"],
+    ["#contacto", "Contacto"]
   ];
   const header = $("#site-header");
   if (header) {
     header.className = "header";
     header.innerHTML = `
       <div class="container header__in">
-        <a class="logo" href="index.html" aria-label="${C.nombreCorto}, inicio">
+        <a class="logo" href="#inicio" aria-label="${C.nombreCorto}, inicio">
           <img src="${C.logo}" alt="${C.nombre}">
         </a>
         <button class="nav__toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">${icon("menu")}</button>
@@ -54,6 +54,7 @@
         </nav>
       </div>`;
     const t = $(".nav__toggle", header), nav = $("#nav", header);
+    nav.addEventListener("click", e => { if (e.target.closest("a")) { nav.classList.remove("is-open"); t.setAttribute("aria-expanded", false); } });
     t.addEventListener("click", () => {
       const open = nav.classList.toggle("is-open");
       t.setAttribute("aria-expanded", open);
@@ -71,13 +72,13 @@
       <div class="container">
         <div class="footer__grid">
           <div>
-            <a class="logo" href="index.html"><img src="${C.logo}" alt="${C.nombre}" style="height:72px;background:#fff;border-radius:12px;padding:6px 10px"></a>
+            <a class="logo" href="#inicio"><img src="${C.logo}" alt="${C.nombre}" style="height:72px;background:#fff;border-radius:12px;padding:6px 10px"></a>
             <p style="margin-top:14px">Crédito, protección y compras para funcionarios públicos desde ${C.fundacion}. Afiliada a FECOSER.</p>
           </div>
           <div><h3>Servicios</h3><ul>
-            <li><a href="credicash.html">CrédiCash</a></li>
-            <li><a href="proteccion.html">Planes de protección</a></li>
-            <li><a href="${C.enlaces.tiendita}" target="_blank" rel="noopener">Tiendita CSG</a></li>
+            <li><a href="#credicash">CrédiCash</a></li>
+            <li><a href="#proteccion">Planes de protección</a></li>
+            <li><a href="#tiendita">Tiendita CSG</a></li>
             <li><a href="${C.enlaces.estadoCuenta}" target="_blank" rel="noopener">Estado de cuenta</a></li>
           </ul></div>
           <div><h3>Contacto</h3><ul>
@@ -176,7 +177,7 @@
   const precioTxt = p => p ? `<span class="plan-card__from">desde</span> <strong>${colones(p)}</strong> <span class="plan-card__from">/mes</span>` : `<strong class="plan-card__tbd">Precio por confirmar</strong>`;
   $$("[data-planes-cards]").forEach(box => {
     box.innerHTML = C.planes.map(x => `
-      <article class="plan-card plan-card--${x.color}">
+      <article class="plan-card plan-card--${x.color}" id="${x.id}">
         <span class="plan-card__ic ic-${x.color}">${icon(ICONS[x.color] || "heart")}</span>
         <h3>${x.nombre}</h3>
         <p class="plan-card__sum">${x.resumen}</p>
@@ -184,7 +185,9 @@
         <div class="plan-card__foot">
           <p class="plan-card__price">${precioTxt(x.precio)}</p>
           <a class="btn btn--primary btn--block" href="${waLink("Hola, quiero el plan " + x.nombre + ".")}" target="_blank" rel="noopener">Quiero este plan</a>
-          <a class="plan-card__more" href="proteccion.html">Ver detalle</a>
+          <details class="plan-card__details"><summary>Ver detalle</summary>
+            <dl><dt>Qué cubre</dt><dd>${x.cubre}</dd><dt>Costo</dt><dd>${x.costo}</dd><dt>Forma de pago</dt><dd>${x.pago}</dd></dl>
+          </details>
         </div>
       </article>`).join("");
   });

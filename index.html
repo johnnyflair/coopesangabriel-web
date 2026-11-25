@@ -26,7 +26,7 @@
 
 <main>
   <!-- HERO + CALCULADORA -->
-  <section class="hero hero--waves">
+  <section class="hero hero--waves" id="inicio">
     <div class="hero__bg" aria-hidden="true">
       <svg class="wave wave--back" viewBox="0 0 1200 300" preserveAspectRatio="none"><path d="M0 150 C150 90 300 210 450 150 S750 90 900 150 1050 210 1200 150 V300 H0Z"/></svg>
       <svg class="wave wave--front" viewBox="0 0 1200 300" preserveAspectRatio="none"><path d="M0 200 C150 150 300 250 450 200 S750 150 900 200 1050 250 1200 200 V300 H0Z"/></svg>
@@ -46,19 +46,19 @@
         <div class="hero-products">
         <p class="hero-services__title">Nuestros productos</p>
         <nav class="hero-services" aria-label="Nuestros productos">
-          <a class="hero-service hero-service--main" href="credicash.html">
+          <a class="hero-service hero-service--main" href="#credicash">
             <span class="hero-service__ic ic-green-light" data-icon="cash"></span>
             <strong>CrédiCash</strong><span>Efectivo sin fiador</span>
           </a>
-          <a class="hero-service" href="proteccion.html">
+          <a class="hero-service" href="#cuidarte-mas">
             <span class="hero-service__ic ic-red" data-icon="heart"></span>
             <strong>Planes de salud</strong><span>Cuidarte Más</span>
           </a>
-          <a class="hero-service" href="proteccion.html">
+          <a class="hero-service" href="#funerario">
             <span class="hero-service__ic ic-orange" data-icon="flower"></span>
             <strong>Plan funerario</strong><span>Para tu familia</span>
           </a>
-          <a class="hero-service" data-tiendita target="_blank" rel="noopener">
+          <a class="hero-service" href="#tiendita">
             <span class="hero-service__ic ic-yellow" data-icon="bag"></span>
             <strong>Tiendita CSG</strong><span>Comprá a cuotas</span>
           </a>
@@ -94,8 +94,8 @@
 
   
 
-  <!-- CREDICASH EN CIFRAS -->
-  <section class="section section--tight">
+  <!-- CREDICASH -->
+  <section class="section section--tight" id="credicash">
     <div class="container">
       <h2>CrédiCash, así de simple</h2>
       <div class="stats" style="margin-top:20px">
@@ -141,11 +141,22 @@
           <p>En tu cuenta en menos de 48 horas.</p>
         </li>
       </ol>
+
+      <div class="req-box">
+        <div>
+          <h3>Requisitos</h3>
+          <ul class="req" data-requisitos></ul>
+        </div>
+        <div class="req-box__side">
+          <a class="btn btn--primary" href="#calculadora">Calcular mi cuota</a>
+          <p class="legal">Coope San Gabriel R.L. está supervisada solamente en materia de prevención de legitimación de capitales y financiamiento al terrorismo. La SUGEF no la supervisa en materia financiera.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- PLANES -->
-  <section class="section plans-section">
+  <section class="section plans-section" id="proteccion">
     <div class="container">
       <span class="section-label">Protección</span>
       <h2>Protegé lo que más querés</h2>
@@ -170,28 +181,41 @@
     </div>
   </section>
 
-  <!-- FAQ + NOSOTROS -->
+  <!-- PREGUNTAS + NOSOTROS -->
   <section class="section section--tight">
     <div class="container grid grid--2" style="gap:40px;align-items:start">
-      <div>
+      <div id="preguntas">
         <h2>Preguntas frecuentes</h2>
-        <div class="faq" data-faq="4" style="margin-top:16px"></div>
-        <a href="credicash.html#preguntas">Ver todas las preguntas</a>
+        <div class="faq" data-faq style="margin-top:16px"></div>
       </div>
-      <div>
+      <div id="nosotros">
         <h2>Desde 1997 con el sector público</h2>
         <img class="photo" style="margin:16px 0" src="assets/oficina-csg-800.jpg" srcset="assets/oficina-csg-800.jpg 800w, assets/oficina-csg.jpg 1600w" sizes="(max-width:900px) 100vw, 560px" alt="Edificio de Coope San Gabriel R.L." loading="lazy" width="1600" height="1071">
-        <p class="muted">Somos una cooperativa de servicios múltiples afiliada a FECOSER. Creemos en el poder de hacer las cosas bien. <a href="nosotros.html">Conocé nuestra historia</a></p>
+        <p class="muted">Somos una cooperativa de servicios múltiples afiliada a FECOSER. Creemos en el poder de hacer las cosas bien.</p>
+        <p class="muted">Desde 1997 fortalecemos el espíritu cooperativo e impulsamos el crecimiento económico y humano de nuestros asociados, con Comité de Vigilancia y Comité de Educación y Bienestar Social.</p>
       </div>
     </div>
   </section>
 
   <!-- TIENDITA -->
-  <section class="section section--tight">
+  <section class="section section--tight" id="tiendita">
     <div class="container">
       <div class="banner">
         <p><strong>Comprá a cuotas en la Tiendita CSG</strong> · con rebajo de planilla</p>
         <a class="btn btn--accent" data-tiendita target="_blank" rel="noopener">Ir a la tienda</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section" id="contacto">
+    <div class="container">
+      <span class="section-label">Contacto</span>
+      <h2>Estamos para ayudarte</h2>
+      <p class="muted">La forma más rápida es WhatsApp. También podés llamarnos, escribirnos o visitarnos.</p>
+      <div class="grid grid--3" data-contacto style="margin-top:20px"></div>
+      <div style="margin-top:24px">
+        <a class="btn btn--primary" data-wa="Hola, quiero información." target="_blank" rel="noopener"><span data-icon="wa"></span> Escribinos por WhatsApp</a>
       </div>
     </div>
   </section>
