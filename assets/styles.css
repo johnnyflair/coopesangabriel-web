@@ -232,3 +232,10 @@ input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 4px rgba(
   .hero-service span:last-child{display:none}
   .hero-service__ic{width:30px;height:30px}
 }
+
+.ticker{padding:13px 0;font-weight:500}
+.ticker__track{display:inline-flex;animation-duration:48s}
+.ticker__group{display:inline-flex}
+.ticker__item{display:inline-flex;align-items:center;padding:0 28px}
+.ticker__item strong{font-weight:700;margin:0 .25em}
+.ticker__item::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--brand);margin-left:56px;margin-right:-28px}
