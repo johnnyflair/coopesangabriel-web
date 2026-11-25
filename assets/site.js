@@ -170,6 +170,46 @@
       </tbody>`;
   });
 
+  /* ---------- Planes: tarjetas ---------- */
+  const ICONS = { red: "heart", orange: "flower", yellow: "shield" };
+  const precioTxt = p => p ? `<span class="plan-card__from">desde</span> <strong>${colones(p)}</strong> <span class="plan-card__from">/mes</span>` : `<strong class="plan-card__tbd">Precio por confirmar</strong>`;
+  $$("[data-planes-cards]").forEach(box => {
+    box.innerHTML = C.planes.map(x => `
+      <article class="plan-card plan-card--${x.color}">
+        <span class="plan-card__ic ic-${x.color}">${icon(ICONS[x.color] || "heart")}</span>
+        <h3>${x.nombre}</h3>
+        <p class="plan-card__sum">${x.resumen}</p>
+        <ul class="plan-card__list">${x.beneficios.map(b => `<li>${icon("check", "icon--sm")}<span>${b}</span></li>`).join("")}</ul>
+        <div class="plan-card__foot">
+          <p class="plan-card__price">${precioTxt(x.precio)}</p>
+          <a class="btn btn--primary btn--block" href="${waLink("Hola, quiero el plan " + x.nombre + ".")}" target="_blank" rel="noopener">Quiero este plan</a>
+          <a class="plan-card__more" href="proteccion.html">Ver detalle</a>
+        </div>
+      </article>`).join("");
+  });
+
+  /* ---------- Planes: armá tu protección ---------- */
+  $$("[data-planes-builder]").forEach(box => {
+    const list = $("[data-builder-list]", box);
+    list.innerHTML = C.planes.map((x, i) => `
+      <label class="builder__item">
+        <input type="checkbox" value="${i}" ${i < 2 ? "checked" : ""}>
+        <span class="plan-card__ic ic-${x.color}">${icon(ICONS[x.color] || "heart", "icon--sm")}</span>
+        <span class="builder__name"><strong>${x.nombre}</strong><span>${x.resumen}</span></span>
+        <span class="builder__price">${x.precio ? colones(x.precio) + "/mes" : "Por confirmar"}</span>
+      </label>`).join("");
+    const total = $("[data-builder-total]", box), note = $("[data-builder-note]", box), cta = $("[data-builder-cta]", box);
+    const update = () => {
+      const sel = $$("input:checked", list).map(i => C.planes[+i.value]);
+      const allPriced = sel.length && sel.every(x => x.precio);
+      total.textContent = !sel.length ? "₡0" : allPriced ? colones(sel.reduce((a, x) => a + x.precio, 0)) : "Te lo cotizamos";
+      note.textContent = sel.length ? (allPriced ? "Se rebaja de tu planilla cada mes." : "Te confirmamos el monto exacto por WhatsApp.") : "Escogé al menos un plan.";
+      cta.href = waLink(sel.length ? "Hola, quiero estos planes: " + sel.map(x => x.nombre).join(", ") + "." : "Hola, quiero información de los planes de protección.");
+      $$(".builder__item", list).forEach(l => l.classList.toggle("is-on", $("input", l).checked));
+    };
+    list.addEventListener("change", update); update();
+  });
+
   /* ---------- FAQ ---------- */
   $$("[data-faq]").forEach(box => {
     const n = +(box.dataset.faq || 99);

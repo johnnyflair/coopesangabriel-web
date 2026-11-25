@@ -51,6 +51,9 @@ window.CSG = {
       nombre: "Cuidarte Más",
       icono: "heart",
       resumen: "Plan de salud para vos y tu familia.",
+      color: "red",
+      beneficios: ["Beneficio por confirmar", "Beneficio por confirmar", "Beneficio por confirmar"],
+      precio: null,            // PENDIENTE: monto mensual en colones, ej. 8500
       cubre: "Coberturas por confirmar",
       costo: "Por confirmar",
       pago: "Rebajo de planilla"
@@ -60,6 +63,9 @@ window.CSG = {
       nombre: "Plan funerario",
       icono: "flower",
       resumen: "Tranquilidad para tu familia en el momento más difícil.",
+      color: "orange",
+      beneficios: ["Servicio funerario familiar", "Cobertura por confirmar", "Cobertura por confirmar"],
+      precio: null,            // PENDIENTE
       cubre: "Servicio funerario familiar (detalle por confirmar)",
       costo: "Por confirmar",
       pago: "Rebajo de planilla"
@@ -69,6 +75,9 @@ window.CSG = {
       nombre: "Seguros colectivos INS",
       icono: "shield",
       resumen: "Vida e incendio en póliza colectiva del INS.",
+      color: "yellow",
+      beneficios: ["Vida: ₡5.000.000", "Gastos funerarios: ₡2.000.000", "Incendio y asistencia en el hogar"],
+      precio: null,            // PENDIENTE (según póliza)
       cubre: "Vida: ₡5.000.000 por muerte natural o accidental y ₡2.000.000 para gastos funerarios. Incendio: incendio y rayo, coberturas C y D, asistencia en el hogar.",
       costo: "Según póliza",
       pago: "Rebajo de planilla"
