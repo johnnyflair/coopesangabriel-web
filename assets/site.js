@@ -45,7 +45,7 @@
     header.innerHTML = `
       <div class="container header__in">
         <a class="logo" href="index.html" aria-label="${C.nombreCorto}, inicio">
-          <img src="${C.logo}" alt="${C.nombre}" onerror="this.onerror=null;this.src='${C.logoRespaldo}'">
+          <img src="${C.logo}" alt="${C.nombre}">
         </a>
         <button class="nav__toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">${icon("menu")}</button>
         <nav class="nav" id="nav" aria-label="Principal">
@@ -71,7 +71,7 @@
       <div class="container">
         <div class="footer__grid">
           <div>
-            <a class="logo" href="index.html"><img src="${C.logoBlanco}" alt="${C.nombre}" style="height:64px" onerror="this.onerror=null;this.src='${C.logoBlancoRespaldo}'"></a>
+            <a class="logo" href="index.html"><img src="${C.logo}" alt="${C.nombre}" style="height:72px;background:#fff;border-radius:12px;padding:6px 10px"></a>
             <p style="margin-top:14px">Crédito, protección y compras para funcionarios públicos desde ${C.fundacion}. Afiliada a FECOSER.</p>
           </div>
           <div><h3>Servicios</h3><ul>
@@ -95,7 +95,7 @@
         </div>
         <div class="footer__legal">
           <p>${C.nombre}, Cooperativa de Servicios Múltiples San Gabriel R.L., está supervisada solamente en materia de prevención de legitimación de capitales y financiamiento al terrorismo. La SUGEF no supervisa a la cooperativa en materia financiera, ni sus negocios, ni su solvencia.</p>
-          <p style="margin:0">© ${new Date().getFullYear()} ${C.nombre}. Todos los derechos reservados.</p>
+          <p style="margin:0">© ${new Date().getFullYear()} ${C.nombre} Todos los derechos reservados.</p>
         </div>
       </div>`;
   }

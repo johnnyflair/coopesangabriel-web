@@ -8,12 +8,8 @@ window.CSG = {
   nombreCorto: "Coope San Gabriel",
   fundacion: 1997,
 
-  /* Logos oficiales. Copiar los archivos a /assets para no depender del WordPress actual.
-     Mientras no estén, se cargan desde coopesangabriel.com como respaldo. */
+  /* Logo oficial (assets/logo-csg-original.png es la versión grande) */
   logo: "assets/logo-csg.png",
-  logoRespaldo: "https://coopesangabriel.com/wp-content/uploads/2026/03/Copia-de-presupuesto-MAR-2-24.png",
-  logoBlanco: "assets/logo-csg-blanco.png",
-  logoBlancoRespaldo: "https://coopesangabriel.com/wp-content/uploads/2024/08/LOGO-CSG-Blanco.png",
 
   contacto: {
     whatsapp: "50670343412",          // PENDIENTE: confirmar el número oficial (hoy hay dos: 7034-3412 y 8686-9905)

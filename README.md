@@ -27,10 +27,9 @@ El sitio usa la identidad actual de Coope San Gabriel:
 
 Los colores están en las variables al inicio de `assets/styles.css`.
 
-**Logos:** copiar el logo a color como `assets/logo-csg.png` y el blanco como `assets/logo-csg-blanco.png`. Mientras no estén, el sitio los carga desde el WordPress actual como respaldo.
+**Logo:** `assets/logo-csg.png` (versión web) y `assets/logo-csg-original.png` (versión grande).
 
 ## Falta agregar
-- Los archivos del logo en `assets/` (ver la sección Marca)
 - Fotos reales del equipo u oficina (reemplazar los bloques `.photo-pending`)
 - `assets/og.jpg` (1200×630), la imagen que aparece al compartir el enlace en redes
 
