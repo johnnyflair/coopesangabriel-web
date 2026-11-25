@@ -95,7 +95,8 @@
         </div>
         <div class="footer__legal">
           <p>${C.nombre}, Cooperativa de Servicios Múltiples San Gabriel R.L., está supervisada solamente en materia de prevención de legitimación de capitales y financiamiento al terrorismo. La SUGEF no supervisa a la cooperativa en materia financiera, ni sus negocios, ni su solvencia.</p>
-          <p style="margin:0">© ${new Date().getFullYear()} ${C.nombre} Todos los derechos reservados.</p>
+          <div class="footer__bottom"><p style="margin:0">© ${new Date().getFullYear()} ${C.nombre} Todos los derechos reservados.</p>
+          <p style="margin:0">Desarrollado por <a href="https://www.ariatechcr.co" target="_blank" rel="noopener">Aria Martech Studio</a></p></div>
         </div>
       </div>`;
   }

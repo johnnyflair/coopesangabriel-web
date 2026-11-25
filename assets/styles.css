@@ -256,3 +256,28 @@ input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 4px rgba(
 }
 
 .photo{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:var(--radius-lg);display:block}
+
+/* Columna izquierda simétrica con la calculadora */
+@media(min-width:901px){
+  .hero__grid--balanced{align-items:stretch;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+  .hero__left{display:flex;flex-direction:column;justify-content:space-between}
+  .hero__left .brand-chip{align-self:flex-start;margin-bottom:0}
+  .hero__left h1{margin:18px 0 14px}
+  .hero__left .hero-services{max-width:none}
+  .hero__left .hero-services__title{margin-top:auto;padding-top:20px}
+}
+@media(min-width:901px){
+  .hero__grid--balanced{grid-template-columns:minmax(0,1.22fr) minmax(0,.78fr);gap:40px}
+  .hero__left .checks--hero{font-size:.92rem;gap:18px}
+  .hero__left .hero-service strong{font-size:.92rem;white-space:nowrap}
+  .hero__left .hero-service span:last-child{white-space:nowrap;font-size:.8rem}
+}
+@media(min-width:901px) and (max-width:1180px){.hero__left .checks--hero{font-size:.84rem;gap:12px}}
+@media(min-width:901px) and (max-width:1000px){.hero__left .checks--hero{flex-wrap:wrap;white-space:normal}}
+
+@media(min-width:901px){
+  .hero__left h1,.hero__left .checks--hero{margin:0}
+  .hero__left .hero-services__title{margin:0 0 10px;padding-top:0}
+}
+.footer__bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.footer__bottom a{font-weight:600}
