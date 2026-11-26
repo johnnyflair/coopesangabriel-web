@@ -19,6 +19,9 @@
     mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
     pin: '<path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
     clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    chat: '<path d="M4 5h16v11H9l-5 4V5z"/><path d="M9 10h.01M12 10h.01M15 10h.01"/>',
+    x: '<path d="M6 6l12 12M18 6L6 18"/>',
+    send: '<path d="M4 12l16-8-6 16-2-7-8-1z"/>',
     wa: '<path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6L3 21z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-2-2l.8-1-1-2L9 9.5z"/>'
   };
   const icon = (n, cls = "") => `<svg class="icon ${cls}" viewBox="0 0 24 24" aria-hidden="true">${P[n] || ""}</svg>`;
@@ -129,7 +132,7 @@
           </ul></div>
         </div>
         <div class="footer__legal">
-          <p>${C.nombre}, Cooperativa de Servicios Múltiples San Gabriel R.L., está supervisada solamente en materia de prevención de legitimación de capitales y financiamiento al terrorismo. La SUGEF no supervisa a la cooperativa en materia financiera, ni sus negocios, ni su solvencia.</p>
+          <p>ADVERTENCIA: Se advierte al público que la Cooperativa de Servicios Múltiples San Gabriel R.L. es supervisada solamente en materia de prevención de legitimación de capitales, financiamiento al terrorismo y financiamiento de la proliferación de armas de destrucción masiva, y además se encuentra sujeta a disposiciones vinculantes de la Unidad de Inteligencia Financiera del Instituto Costarricense sobre Drogas. Por lo tanto, la SUGEF no supervisa en materia financiera a Coopesangabriel R.L., ni los negocios que ofrece, ni su seguridad, estabilidad o solvencia.</p>
           <div class="footer__bottom"><p style="margin:0">© ${new Date().getFullYear()} ${C.nombre} Todos los derechos reservados.</p>
           <p style="margin:0">Desarrollado por <a href="https://www.ariatechcr.co" target="_blank" rel="noopener">Aria Martech Studio</a></p></div>
         </div>
@@ -267,15 +270,16 @@
     const k = C.contacto;
     const row = (ic, t, v, href) => {
       const val = v ? (href ? `<a href="${href}"${href.startsWith("http") ? ' target="_blank" rel="noopener"' : ""}>${v}</a>` : `<span>${v}</span>`) : '<span class="contact-row__tbd">Por confirmar</span>';
-      return `<li class="contact-row"><span class="contact-row__ic">${icon(ic, "icon--sm")}</span><span class="contact-row__t">${t}</span>${val}</li>`;
+      return `<li class="contact-row${v && v.length > 24 ? " contact-row--long" : ""}${v && v.length > 60 ? " contact-row--full" : ""}"><span class="contact-row__ic">${icon(ic, "icon--sm")}</span><span class="contact-row__t">${t}</span>${val}</li>`;
     };
     box.className = "contact-list";
     box.innerHTML = [
       row("wa", "WhatsApp", k.whatsappVisible, waLink("Hola, quiero información.")),
       row("phone", "Teléfono", k.telefono, k.telefono ? "tel:+506" + k.telefono.replace(/\D/g, "") : ""),
+      row("phone", "Móvil", k.movil, k.movil ? "tel:+506" + k.movil.replace(/\D/g, "") : ""),
       row("mail", "Correo", k.correo, k.correo ? "mailto:" + k.correo : ""),
-      row("pin", "Oficina", k.direccion, k.mapaUrl),
-      row("clock", "Horario", k.horario)
+      row("clock", "Horario", k.horario),
+      row("pin", "Oficina", k.direccion ? k.direccion + " · Abrir en Waze" : "", k.mapaUrl)
     ].join("");
   });
 

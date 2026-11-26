@@ -14,11 +14,12 @@ window.CSG = {
   contacto: {
     whatsapp: "50670343412",          // PENDIENTE: confirmar el número oficial (hoy hay dos: 7034-3412 y 8686-9905)
     whatsappVisible: "7034-3412",     // PENDIENTE
-    telefono: "",                     // PENDIENTE: teléfono fijo, ej. "2222-2222"
-    correo: "",                       // PENDIENTE: ej. "info@coopesangabriel.com"
-    direccion: "",                    // PENDIENTE: dirección de la oficina
-    horario: "",                      // PENDIENTE: ej. "Lunes a viernes, 8:00 a.m. a 5:00 p.m."
-    mapaUrl: ""                       // PENDIENTE: enlace de Google Maps
+    telefono: "4001-2656",                 // Fijo, del sitio actual
+    correo: "clienteselecto@coopesangabriel.com",
+    movil: "6156-5903",                     // Móvil, del sitio actual
+    direccion: "Zapote, San José: 150 m oeste del Registro Nacional, Centro Comercial Plaza del Castillo, 2.º piso, local 30",
+    horario: "Lunes a viernes, 8:00 a.m. a 5:00 p.m.",
+    mapaUrl: "https://waze.com/ul/hd1u0rmgt2"           // Waze, del sitio actual
   },
 
   /* Medición: pegar aquí los IDs cuando existan las cuentas.
@@ -32,9 +33,9 @@ window.CSG = {
   enlaces: {
     estadoCuenta: "https://coopesangabriel.com/estado-de-cuenta/", // PENDIENTE: URL real del estado de cuenta
     tiendita: "https://tienditacsg.com",                         // PENDIENTE: confirmar cuál dominio queda (hay dos)
-    facebook: "https://www.facebook.com/",                       // PENDIENTE
-    instagram: "https://www.instagram.com/",                     // PENDIENTE
-    youtube: "https://www.youtube.com/"                          // PENDIENTE
+    facebook: "https://www.facebook.com/CoopeSanGabrielRL",
+    instagram: "https://www.instagram.com/coopesangabriel/",
+    youtube: "https://www.youtube.com/@coopesangabrielrl9205"
   },
 
   credicash: {
