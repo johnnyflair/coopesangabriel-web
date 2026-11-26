@@ -265,14 +265,17 @@
   /* ---------- Contacto ---------- */
   $$("[data-contacto]").forEach(box => {
     const k = C.contacto;
-    const card = (ic, t, v, href) => `<div class="card" style="display:flex;gap:14px;align-items:flex-start">
-      <span style="color:var(--brand)">${icon(ic)}</span><div><strong>${t}</strong><br>${v ? (href ? `<a href="${href}">${v}</a>` : `<span class="muted">${v}</span>`) : '<span class="tiny">Por confirmar</span>'}</div></div>`;
+    const row = (ic, t, v, href) => {
+      const val = v ? (href ? `<a href="${href}"${href.startsWith("http") ? ' target="_blank" rel="noopener"' : ""}>${v}</a>` : `<span>${v}</span>`) : '<span class="contact-row__tbd">Por confirmar</span>';
+      return `<li class="contact-row"><span class="contact-row__ic">${icon(ic, "icon--sm")}</span><span class="contact-row__t">${t}</span>${val}</li>`;
+    };
+    box.className = "contact-list";
     box.innerHTML = [
-      card("wa", "WhatsApp", k.whatsappVisible, waLink("Hola, quiero información.")),
-      card("phone", "Teléfono", k.telefono, k.telefono ? "tel:+506" + k.telefono.replace(/\D/g, "") : ""),
-      card("mail", "Correo", k.correo, k.correo ? "mailto:" + k.correo : ""),
-      card("pin", "Oficina", k.direccion, k.mapaUrl),
-      card("clock", "Horario", k.horario)
+      row("wa", "WhatsApp", k.whatsappVisible, waLink("Hola, quiero información.")),
+      row("phone", "Teléfono", k.telefono, k.telefono ? "tel:+506" + k.telefono.replace(/\D/g, "") : ""),
+      row("mail", "Correo", k.correo, k.correo ? "mailto:" + k.correo : ""),
+      row("pin", "Oficina", k.direccion, k.mapaUrl),
+      row("clock", "Horario", k.horario)
     ].join("");
   });
 
