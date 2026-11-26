@@ -26,8 +26,42 @@
 
   const colones = n => "₡" + Math.round(n).toLocaleString("es-CR");
 
+  /* ---------- Origen de la visita ----------
+     Guarda de dónde viene la persona (campaña, red o búsqueda) durante 30 días
+     y lo agrega al mensaje de WhatsApp como "Ref: ...". Así cada solicitud
+     llega con su origen y se puede conciliar con los desembolsos. */
+  const ORIGEN_KEY = "csg_origen", ORIGEN_DIAS = 30;
+  const origen = (() => {
+    const q = new URLSearchParams(location.search);
+    const limpio = v => (v || "").toLowerCase().replace(/[^a-z0-9._-]+/g, "-").slice(0, 40);
+    let nuevo = null;
+    if (q.get("utm_source")) {
+      nuevo = { fuente: limpio(q.get("utm_source")), medio: limpio(q.get("utm_medium")), campana: limpio(q.get("utm_campaign")) };
+    } else if (q.get("gclid")) nuevo = { fuente: "google", medio: "cpc", campana: "" };
+    else if (q.get("fbclid")) nuevo = { fuente: "meta", medio: "social", campana: "" };
+    else if (q.get("ttclid")) nuevo = { fuente: "tiktok", medio: "cpc", campana: "" };
+    else if (document.referrer) {
+      try {
+        const h = new URL(document.referrer).hostname.replace(/^www\./, "");
+        if (h && h !== location.hostname.replace(/^www\./, "")) {
+          const buscador = /google\.|bing\.|yahoo\.|duckduckgo\./.test(h);
+          const red = /facebook\.|instagram\.|tiktok\.|t\.co$|twitter\.|x\.com|youtube\.|linkedin\./.test(h);
+          nuevo = { fuente: h.split(".").slice(-2, -1)[0] || h, medio: buscador ? "organico" : red ? "social" : "referido", campana: "" };
+        }
+      } catch (e) {}
+    }
+    let guardado = null;
+    try { guardado = JSON.parse(localStorage.getItem(ORIGEN_KEY) || "null"); } catch (e) {}
+    if (guardado && Date.now() - guardado.t > ORIGEN_DIAS * 864e5) guardado = null;
+    const o = nuevo || (guardado && guardado.o) || { fuente: "directo", medio: "", campana: "" };
+    if (nuevo) { try { localStorage.setItem(ORIGEN_KEY, JSON.stringify({ o: nuevo, t: Date.now() })); } catch (e) {} }
+    o.ref = [o.fuente, o.campana || o.medio].filter(Boolean).join("/");
+    return o;
+  })();
+  window.CSGorigen = origen;
+
   /* ---------- WhatsApp ---------- */
-  const waLink = msg => `https://wa.me/${C.contacto.whatsapp}?text=${encodeURIComponent(msg)}`;
+  const waLink = msg => `https://wa.me/${C.contacto.whatsapp}?text=${encodeURIComponent(msg + "\n\nRef: " + origen.ref)}`;
   window.CSGwa = waLink;
 
   /* ---------- Header ---------- */
@@ -265,4 +299,35 @@
   });
 
   if ($("[data-mobile-cta]")) document.body.classList.add("has-mobile-cta");
+
+  /* ---------- Medición: GA4, Meta y TikTok ----------
+     Se cargan solo si el ID está puesto en assets/config.js (medicion). */
+  const M = C.medicion || {};
+  const cargar = src => { const s = document.createElement("script"); s.async = true; s.src = src; document.head.appendChild(s); };
+  if (M.ga4) {
+    cargar("https://www.googletagmanager.com/gtag/js?id=" + M.ga4);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag("js", new Date());
+    gtag("config", M.ga4, { origen: origen.ref });
+  }
+  if (M.metaPixel) {
+    !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0"; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    fbq("init", M.metaPixel); fbq("track", "PageView");
+  }
+  if (M.tiktokPixel) {
+    !function (w, d, t) { w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie"]; ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))); }; }; for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]); ttq.load = function (e) { var a = d.createElement("script"); a.async = !0; a.src = "https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=" + e + "&lib=" + t; var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(a, s); }; ttq.load(M.tiktokPixel); ttq.page(); }(window, document, "ttq");
+  }
+
+  /* Cada clic a WhatsApp cuenta como solicitud (lead), con su producto y origen */
+  document.addEventListener("click", e => {
+    const a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+    if (!a) return;
+    const txt = decodeURIComponent((a.href.split("text=")[1] || "")).split("\n")[0];
+    const producto = /credicash/i.test(txt) ? "credicash" : /plan/i.test(txt) ? "planes" : "general";
+    const datos = { producto, origen: origen.ref, fuente: origen.fuente, campana: origen.campana || "" };
+    try { if (window.gtag) { gtag("event", "whatsapp_click", datos); gtag("event", "generate_lead", datos); } } catch (err) {}
+    try { if (window.fbq) fbq("track", "Lead", { content_name: producto }); } catch (err) {}
+    try { if (window.ttq) ttq.track("Contact", { content_id: producto }); } catch (err) {}
+  });
 })();

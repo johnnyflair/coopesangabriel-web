@@ -21,6 +21,14 @@ window.CSG = {
     mapaUrl: ""                       // PENDIENTE: enlace de Google Maps
   },
 
+  /* Medición: pegar aquí los IDs cuando existan las cuentas.
+     Vacío = no se carga nada. */
+  medicion: {
+    ga4: "",          // PENDIENTE: ID de Google Analytics 4, ej. "G-XXXXXXX"
+    metaPixel: "",    // PENDIENTE: ID del píxel de Meta, ej. "123456789012345"
+    tiktokPixel: ""   // PENDIENTE: ID del píxel de TikTok, ej. "CXXXXXXXXXXXXXXX"
+  },
+
   enlaces: {
     estadoCuenta: "https://coopesangabriel.com/estado-de-cuenta/", // PENDIENTE: URL real del estado de cuenta
     tiendita: "https://tienditacsg.com",                         // PENDIENTE: confirmar cuál dominio queda (hay dos)

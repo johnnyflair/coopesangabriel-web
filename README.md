@@ -19,6 +19,13 @@ Casi todo se cambia en **`assets/config.js`**:
 
 Todo lo que falta confirmar está marcado con `PENDIENTE` en ese archivo.
 
+## Medición y origen de cada solicitud
+- **IDs de medición:** en `assets/config.js`, sección `medicion`, se pegan los IDs de Google Analytics 4, del píxel de Meta y del píxel de TikTok. Si están vacíos, no se carga nada.
+- **Eventos:** cada clic a WhatsApp envía `whatsapp_click` y `generate_lead` a GA4 (marcar `generate_lead` como evento clave), `Lead` a Meta y `Contact` a TikTok, con el producto y el origen.
+- **Origen en el mensaje:** cada mensaje de WhatsApp termina con `Ref: fuente/campaña` (por ejemplo `Ref: meta/credicash-nov`). Sale de los parámetros UTM del anuncio, o de `gclid`, `fbclid` o `ttclid`, o del sitio que trajo a la persona; si no hay nada, dice `Ref: directo`. Se guarda 30 días en el navegador.
+- **Enlaces de los anuncios:** usar siempre `utm_source`, `utm_medium` y `utm_campaign`, por ejemplo `https://coopesangabriel.com/?utm_source=meta&utm_medium=cpc&utm_campaign=credicash-nov`.
+- El equipo comercial registra el `Ref` de cada conversación; con eso se concilia la colocación por canal cada mes.
+
 ## Marca
 El sitio usa la identidad actual de Coope San Gabriel:
 - Tipografía **Outfit**, la misma del sitio actual
